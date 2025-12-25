@@ -7,6 +7,7 @@ import { BASE_URL } from "../constants.js";
 const Login = () => {
   const [email, setEmail] = useState("elon@gmail.com");
   const [password, setPassword] = useState("Elon@123");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleOnLogin = async () => {
@@ -25,6 +26,7 @@ const Login = () => {
       navigate("/");
       console.log(data);
     } catch (error) {
+      setError(error?.response?.data?.message || "Something went wrong");
       console.log(error);
     }
   };
@@ -103,6 +105,7 @@ const Login = () => {
             <div className="validator-hint hidden">
               Enter valid email address
             </div>
+            <p className="text-red-300" >{error}</p>
           </div>
           <div className="card-actions justify-center">
             <button onClick={handleOnLogin} className="btn btn-primary">

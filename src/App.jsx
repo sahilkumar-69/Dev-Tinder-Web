@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Body from "./layout/Body";
-import Home from "./Pages/Home";
+import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Login from "./components/Login";
-import appStore from "./store/appStore";
+import appStore from "./store/appStore.js";
 import { Provider } from "react-redux";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
